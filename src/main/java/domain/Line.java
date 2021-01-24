@@ -16,11 +16,12 @@ public class Line {
 
     public Line(int countOfPerson) {
         for (int i = 0; i < countOfPerson - 1; i++) {
-            add(validPrevPoint(createPoint()));
+            add(isPreviousPointLine(createPoint()));
         }
     }
 
-    private boolean validPrevPoint(boolean point) {
+    // 이전 값이 true 면 false 아니면 그대로 반환
+    private boolean isPreviousPointLine(boolean point) {
         if (point && points.size() > 0 && points.get(points.size() - 1)) {
             return false;
         }
@@ -33,7 +34,7 @@ public class Line {
     }
 
     public void add(boolean point) {
-        points.add(validPrevPoint(point));
+        points.add(isPreviousPointLine(point));
     }
 
     public List<Boolean> getLine() {
