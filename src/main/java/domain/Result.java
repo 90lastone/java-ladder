@@ -7,6 +7,7 @@ import java.util.Map;
 public class Result {
     private Map<Name, Name> result = new HashMap<>();
 
+    // TODO 리팩토링 및 테스트 필요
     public Result(NameList personNameList, NameList resultNameList, Ladder ladder) {
         int index = 0;
         for (Name personName : personNameList.getList()) {
@@ -27,6 +28,7 @@ public class Result {
         }
     }
 
+    // TODO 리팩토링 및 테스트 필요
     public Name search(String personName) {
         for (Name key: result.keySet()) {
             if (key.getName().equals(personName)) {
