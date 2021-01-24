@@ -9,7 +9,16 @@ public class Line {
     private static List<Boolean> flagList = new ArrayList<>(Arrays.asList(true, false));
     private List<Boolean> points = new ArrayList<>();
 
-    public Line() {}
+    // 중복라인 테스트 용도
+    public Line() {
+
+    }
+
+    public Line(int countOfPerson) {
+        for (int i = 0; i < countOfPerson - 1; i++) {
+            add(validPrevPoint(createPoint()));
+        }
+    }
 
     private boolean validPrevPoint(boolean point) {
         if (point && points.size() > 0 && points.get(points.size() - 1)) {
@@ -25,12 +34,6 @@ public class Line {
 
     public void add(boolean point) {
         points.add(validPrevPoint(point));
-    }
-
-    public Line(int countOfPerson) {
-        for (int i = 0; i < countOfPerson - 1; i++) {
-            add(validPrevPoint(createPoint()));
-        }
     }
 
     public List<Boolean> getLine() {
