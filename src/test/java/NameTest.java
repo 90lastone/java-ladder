@@ -1,14 +1,14 @@
-import domain.Person;
+import domain.Name;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
-public class PersonTest {
+public class NameTest {
     @Test
-    void PersonTest() {
+    void NameTest() {
         assertThatThrownBy(() -> {
-            new Person("test12");
+            new Name("test12");
         }).isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("이름은 최대 5글자까지만 입력 가능합니다.");
+                .hasMessageContaining("최대 5글자까지만 입력 가능합니다.");
     }
 }
