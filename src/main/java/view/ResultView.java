@@ -1,15 +1,13 @@
 package view;
 
-import domain.Ladder;
-import domain.Line;
-import domain.PersonList;
+import domain.*;
 
 public class ResultView {
     private static String printName(String name) {
         return String.format("%5s", name);
     }
 
-    private static void printNames(PersonList personList) {
+    private static void printNames(NameList personList) {
         personList.getList()
                 .stream()
                 .map(person -> printName(person.getName()) + " ")
@@ -29,15 +27,29 @@ public class ResultView {
         System.out.println();
     }
 
-    public static void ladder(PersonList personList, Ladder ladder) {
-        System.out.println("실행결과");
+    public static void printLadder(NameList personList, NameList resultList, Ladder ladder) {
+        System.out.println("사다리 결과");
         System.out.println();
 
         printNames(personList);
-
         System.out.println();
-
         ladder.getLadder()
                 .forEach(line -> printLine(line));
+
+        printNames(resultList);
+        System.out.println();
+    }
+
+    public static void printResult(Name resultName) {
+        System.out.println("실행 결과");
+        System.out.println(resultName.getName());
+    }
+
+    public static void printResultAll(Result result) {
+        System.out.println("실행 결과");
+
+        for (Name key: result.getResult().keySet()) {
+            System.out.println(key.getName() + " : " + result.getResult().get(key).getName());
+        }
     }
 }
