@@ -5,7 +5,7 @@ import java.util.Collections;
 import java.util.List;
 
 public class Ladder {
-    List<Line> ladder = new ArrayList<>();
+    private List<Line> ladder = new ArrayList<>();
 
     public Ladder(int height, int countOfPerson) {
         for (int i = 0; i < height; i++) {
